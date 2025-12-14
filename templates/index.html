@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitGrade - AI GitHub Repository Analyzer</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo">
+                <i class="fas fa-code-branch"></i>
+                <h1>GitGrade</h1>
+            </div>
+            <p class="tagline">AI-Powered GitHub Repository Analysis & Grading</p>
+        </header>
+
+        <!-- Main Content -->
+        <main>
+            <!-- Input Card -->
+            <div class="card input-card">
+                <h2><i class="fas fa-search"></i> Analyze Repository</h2>
+                <p class="card-subtitle">Enter any public GitHub repository URL to get an AI-powered analysis</p>
+                
+                <div class="input-group">
+                    <input type="text" id="repoUrl" 
+                           placeholder="https://github.com/username/repository"
+                           value="https://github.com/facebook/react">
+                    <button id="analyzeBtn">
+                        <i class="fas fa-chart-line"></i> Analyze Repository
+                    </button>
+                </div>
+                <p class="input-hint">Example: https://github.com/username/repository</p>
+            </div>
+
+            <!-- Loading Indicator (Hidden by default) -->
+            <div class="card loading-card" id="loadingCard">
+                <div class="loading-spinner">
+                    <div class="spinner"></div>
+                    <h3>Analyzing Repository...</h3>
+                    <p>Fetching data and generating insights</p>
+                </div>
+            </div>
+
+            <!-- Results Section (Hidden by default) -->
+            <div class="results-section" id="resultsSection">
+                <!-- Score Card -->
+                <div class="card score-card">
+                    <h2><i class="fas fa-star"></i> Repository Score</h2>
+                    <div class="score-display">
+                        <div class="score-circle">
+                            <span id="scoreValue">0</span>
+                            <div class="score-label">/100</div>
+                        </div>
+                        <div class="level-badge" id="levelBadge">Beginner</div>
+                    </div>
+                    <div class="score-breakdown">
+                        <h3><i class="fas fa-list-check"></i> Score Breakdown</h3>
+                        <div class="breakdown-list" id="breakdownList">
+                            <!-- Will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Summary Card -->
+                <div class="card summary-card">
+                    <h2><i class="fas fa-file-alt"></i> AI Analysis Summary</h2>
+                    <div class="summary-content" id="summaryContent">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Roadmap Card -->
+                <div class="card roadmap-card">
+                    <h2><i class="fas fa-road"></i> Personalized Improvement Roadmap</h2>
+                    <div class="roadmap-content" id="roadmapContent">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+
+                <!-- Repository Info Card -->
+                <div class="card info-card">
+                    <h2><i class="fas fa-info-circle"></i> Repository Details</h2>
+                    <div class="info-grid" id="repoInfo">
+                        <!-- Will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>GitGrade &copy; 2023 | AI-Powered GitHub Repository Analyzer</p>
+            <p class="footer-note">Built for Hackathon | No authentication required</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
